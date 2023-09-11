@@ -1,15 +1,36 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        
-        System.out.println("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> firstNames = new ArrayList<String>();
+        ArrayList<String> lastNames = new ArrayList<String>();
 
-        System.out.println("My name is Markus");
+        String fullName;
+        String firstName;
+        String lastName;
 
-        System.out.println("I work for NatWest");
-        
-    }//end main
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter a first and last name for person " + (i + 1) + "\t");
+            fullName = sc.nextLine();
+
+            int space = fullName.indexOf(" ");
+
+            firstName = fullName.substring(0,space);
+            lastName = fullName.substring(space + 1);
+
+            firstNames.add(firstName);
+            lastNames.add(lastName);
+        }
+
+        for (int fi = 0; fi < firstNames.size(); fi++) {
+            for (int li = 0; li < lastNames.size(); li++) {
+                System.out.println(firstNames.get(fi) + " " + lastNames.get(li));
+            }
+        }
+    }
 }
