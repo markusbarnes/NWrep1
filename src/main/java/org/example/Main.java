@@ -1,36 +1,30 @@
 package org.example;
 
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<String> firstNames = new ArrayList<String>();
-        ArrayList<String> lastNames = new ArrayList<String>();
+        Scanner keyboard = new Scanner(System.in);
+        Random random = new Random();
 
-        String fullName;
-        String firstName;
-        String lastName;
+        int randomNumber = random.nextInt(100) + 1;
+        int guess;
+        int i = 1;
 
+        System.out.println("Try and guess the number...");
+        guess = keyboard.nextInt();
 
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Enter a first and last name for person " + (i + 1) + "\t");
-            fullName = sc.nextLine();
-
-            int space = fullName.indexOf(" ");
-
-            firstName = fullName.substring(0,space);
-            lastName = fullName.substring(space + 1);
-
-            firstNames.add(firstName);
-            lastNames.add(lastName);
-        }
-
-        for (int fi = 0; fi < firstNames.size(); fi++) {
-            for (int li = 0; li < lastNames.size(); li++) {
-                System.out.println(firstNames.get(fi) + " " + lastNames.get(li));
+        for (i = 1; guess != randomNumber; i++){
+            if (guess > randomNumber) {
+                System.out.println("Your guess is too High");
             }
+            else {
+                System.out.println("You number is too Low");
+            }
+            guess = keyboard.nextInt();
         }
+
+        System.out.println("Congratulations, you managed to guess the number in " + i + " guesses");
     }
 }
