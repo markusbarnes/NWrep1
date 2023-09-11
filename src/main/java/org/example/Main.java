@@ -20,7 +20,7 @@ public class Main {
                 System.out.println("Your guess is too High");
             }
             else {
-                System.out.println("You number is too Low");
+                System.out.println("You guess is too Low");
             }
             guess = keyboard.nextInt();
         }
